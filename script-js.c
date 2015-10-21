@@ -1,5 +1,4 @@
 #include <libgimp/gimp.h>
-#include <libgimp/gimpui.h>
 
 static void query (void);
 static void run   (const gchar      *name,
@@ -41,20 +40,20 @@ query (void)
   };
 
   gimp_install_procedure (
-    "plug-in-hello",
-    "Hello, world!",
-    "Displays \"Hello, world!\" in a dialog",
-    "David Neary",
-    "Copyright David Neary",
-    "2004",
-    "_Hello world...",
+    "script-js",
+    "Javascript Scripting Engine",
+    "Allows users to write a Javascript script and install it as a plug-in in GIMP.",
+    "Pratyusha Gupta, Scott Freeman",
+    "Copyright Pratyusha Gupta, Scott Freeman",
+    "2015",
+    "_Javascript Plug-Ins...",
     "RGB*, GRAY*",
     GIMP_PLUGIN,
     G_N_ELEMENTS (args), 0,
     args, NULL);
 
-  gimp_plugin_menu_register ("plug-in-hello",
-                             "<Image>/Filters/Web");
+  gimp_plugin_menu_register ("script-js",
+                             "<Image>/Filters/Misc");
 }
 
 static void
