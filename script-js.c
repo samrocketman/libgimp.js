@@ -79,6 +79,6 @@ run (const gchar      *name,
   run_mode = param[0].data.d_int32;
 
   if (run_mode != GIMP_RUN_NONINTERACTIVE)
-    g_message("Hello, world!\n");
+    g_message("This is the new output\n");
 }
 
