@@ -1,4 +1,12 @@
 #include <libgimp/gimp.h>
+#include <libgimp/gimpui.h>
+#include <gtk/gtk.h>
+#include <errno.h>
+#include <string.h>
+#include <glib/gstdio.h>
+#include <gdk/gdkkeysyms.h>
+#include <glib.h>
+#include <glib/gi18n.h>
 
 static void query (void);
 static void run   (const gchar      *name,
@@ -56,6 +64,16 @@ query (void)
                              "<Image>/Filters/Javascript-Fu");
 }
 
+
+
+
+static void
+hello (GtkWidget *widget,
+       gpointer data)
+{
+  g_print ("Hellow World \n");
+}
+
 static void
 run (const gchar      *name,
      gint              nparams,
@@ -83,5 +101,21 @@ run (const gchar      *name,
 
   if (run_mode != GIMP_RUN_NONINTERACTIVE)
     g_message("This is the new output!\n");
+
+  GtkWidget *window;
+  GtkWidget *button;
+  GtkTextBuffer *buffer;
+
+  /*window = gimp_dialog_new (_("JS-Fu Console"), "gimp-js-fu-console", NULL,
+                           0, gimp_standard_help_func, "script-js");
+
+  gtk_container_set_border_width (GTK_CONTAINER (window), 10);
+  button = gtk_button_new_with_label ("Hellow World");
+  g_signal_connect (button, "clicked", G_CALLBACK (hello), NULL);
+  gtk_container_add (GTK_CONTAINER (window), button);
+  gtk_widget_show (button);
+  gtk_widget_show (window);
+  gtk_main(); */
+
 }
 
