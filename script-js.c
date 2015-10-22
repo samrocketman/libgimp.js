@@ -46,14 +46,14 @@ query (void)
     "Pratyusha Gupta, Scott Freeman",
     "Copyright Pratyusha Gupta, Scott Freeman",
     "2015",
-    "_Javascript Plug-Ins...",
+    "_Console",
     "RGB*, GRAY*",
     GIMP_PLUGIN,
     G_N_ELEMENTS (args), 0,
     args, NULL);
 
   gimp_plugin_menu_register ("script-js",
-                             "<Image>/Filters/Misc");
+                             "<Image>/Filters/Javascript-Fu");
 }
 
 static void
@@ -77,6 +77,9 @@ run (const gchar      *name,
   /* Getting run_mode - we won't display a dialog if 
    * we are in NONINTERACTIVE mode */
   run_mode = param[0].data.d_int32;
+
+
+  gimp_ui_init("script-js", FALSE);
 
   if (run_mode != GIMP_RUN_NONINTERACTIVE)
     g_message("This is the new output!\n");
