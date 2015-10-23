@@ -96,20 +96,22 @@ run (const gchar      *name,
    * we are in NONINTERACTIVE mode */
   run_mode = param[0].data.d_int32;
 
+  if (run_mode != GIMP_RUN_NONINTERACTIVE) {
+   /*  g_message("This is the new output!\n"); */
 
-  gimp_ui_init("script-js", FALSE);
+    gimp_ui_init ("jsfu", FALSE);
 
-  if (run_mode != GIMP_RUN_NONINTERACTIVE)
-    g_message("This is the new output!\n");
+    GtkWidget *window;
+    GtkWidget *button;
+    GtkTextBuffer *buffer;
 
-  GtkWidget *window;
-  GtkWidget *button;
-  GtkTextBuffer *buffer;
+    window = gimp_dialog_new ("JS-Fu Console", "jsfu", NULL,
+                           0, gimp_standard_help_func, "script-js",
+                           GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+                           GTK_STOCK_OK, GTK_RESPONSE_OK,
+                           NULL);
 
-  /*window = gimp_dialog_new (_("JS-Fu Console"), "gimp-js-fu-console", NULL,
-                           0, gimp_standard_help_func, "script-js");
-
-  gtk_container_set_border_width (GTK_CONTAINER (window), 10);
+  /* gtk_container_set_border_width (GTK_CONTAINER (window), 10);
   button = gtk_button_new_with_label ("Hellow World");
   g_signal_connect (button, "clicked", G_CALLBACK (hello), NULL);
   gtk_container_add (GTK_CONTAINER (window), button);
@@ -117,5 +119,9 @@ run (const gchar      *name,
   gtk_widget_show (window);
   gtk_main(); */
 
+    gtk_widget_show (window);
+    int run = (gimp_dialog_run (GIMP_DIALOG (window)) == GTK_RESPONSE_OK);
+    gtk_widget_destroy (window);
+  }
 }
 
