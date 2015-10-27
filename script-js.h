@@ -8,6 +8,16 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
+struct {
+  GtkWidget *window;
+  GtkWidget *button;
+  GtkTextBuffer *buffer;
+  GtkWidget *textbox;
+  GtkWidget *box;
+  GtkWidget *scrolled_window;
+} Console;
+
+
 static void query (void);
 static void run   (const gchar      *name,
                    gint              nparams,
