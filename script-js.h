@@ -8,7 +8,7 @@
 #include <glib.h>
 #include <glib/gi18n.h>
 
-struct {
+typedef struct {
   GtkWidget *window;
   GtkWidget *button;
   GtkTextBuffer *buffer;
