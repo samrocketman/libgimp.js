@@ -1,0 +1,7 @@
+Makefile
+Makefile.in
+*.ex
+*.debhelper
+tmp
+files
+substvars

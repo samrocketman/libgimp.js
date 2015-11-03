@@ -1,0 +1,15 @@
+Source: script-js
+Section: graphics
+Priority: optional
+Maintainer: John Doe <johndoe@johndoes.net>
+Standards-Version: 3.0.1
+
+Package: script-js
+Architecture: any
+Depends: gimp1.1 (>= 1.1.21), ${shlibs:Depends}
+Description: A template for writing your own GIMP plug-in.
+ This is a skeleton GIMP plug-in.  It does everything a real plug-in
+ would do, only it doesn't do anything.  But you can add code to make it
+ do stuff. I guess that's why programmers still have jobs.
+ .
+ homepage: http://plugins.gimp.org/

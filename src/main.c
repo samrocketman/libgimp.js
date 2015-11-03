@@ -1,4 +1,4 @@
-#include "script-js.h"
+#include "main.h"
 
 GimpPlugInInfo PLUG_IN_INFO =
 {
