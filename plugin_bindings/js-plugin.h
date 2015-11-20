@@ -1,8 +1,18 @@
-/*
- * Copyright/Licensing information.
+/* -*- Mode: c; c-basic-offset: 4 -*- 
+ *
+ * GOBject Introspection Tutorial 
+ * 
+ * Written in 2013 by Simon Kågedal Reimer <skagedal@gmail.com>
+ *
+ * To the extent possible under law, the author have dedicated all
+ * copyright and related and neighboring rights to this software to
+ * the public domain worldwide. This software is distributed without
+ * any warranty.
+ *
+ * CC0 Public Domain Dedication:
+ * http://creativecommons.org/publicdomain/zero/1.0/
  */
 
-/* inclusion guard */
 #ifndef __JS_PLUGIN_H__
 #define __JS_PLUGIN_H__
 
@@ -23,7 +33,7 @@
     (G_TYPE_INSTANCE_GET_CLASS ((o), JS_PLUGIN_TYPE, JsPluginClass))
 
 typedef struct _JsPlugin		JsPlugin;
-typedef struct _JsPluginPrivate	JsPluginPrivate;
+typedef struct _JsPluginPrivate	    JsPluginPrivate;
 typedef struct _JsPluginClass		JsPluginClass;
 
 struct _JsPlugin {

@@ -1,7 +1,27 @@
-// A class for JavaScript introspection
+/* -*- Mode: c; c-basic-offset: 4 -*- 
+ *
+ * GOBject Introspection Tutorial 
+ * 
+ * Written in 2013 by Simon Kågedal Reimer <skagedal@gmail.com>
+ *
+ * To the extent possible under law, the author have dedicated all
+ * copyright and related and neighboring rights to this software to
+ * the public domain worldwide. This software is distributed without
+ * any warranty.
+ *
+ * CC0 Public Domain Dedication:
+ * http://creativecommons.org/publicdomain/zero/1.0/
+ */
 
 #include <stdio.h>
 #include "js-plugin.h"
+
+/**
+ * SECTION: js-plugin
+ * @short_description: A plugin.
+ *
+ * The #JsPlugin is a class to display friendly greetings.
+ */
 
 G_DEFINE_TYPE (JsPlugin, js_plugin, G_TYPE_OBJECT)
 
@@ -88,11 +108,6 @@ js_plugin_class_init (JsPluginClass *klass)
     object_class->get_property = js_plugin_get_property;
     object_class->finalize = js_plugin_finalize;
 
-    /**
-     * JsPlugin:greetee:
-     *
-     * The entity to greet.
-     */
     obj_properties[PROP_GREETEE] = 
         g_param_spec_string ("greetee",
                              "Greetee",
