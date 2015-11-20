@@ -15,9 +15,9 @@
     (G_TYPE_CHECK_INSTANCE_CAST ((o), JS_PLUGIN_TYPE, JsPlugin))
 #define JS_PLUGIN_CLASS(c)		\
     (G_TYPE_CHECK_CLASS_CAST ((c), JS_PLUGIN_TYPE, JsPluginClass))
-#define JS_IS_GREETER(o)		\
+#define JS_IS_PLUGIN(o)		\
     (G_TYPE_CHECK_INSTANCE_TYPE ((o), JS_PLUGIN_TYPE))
-#define JS_IS_GREETER_CLASS(c)		\
+#define JS_IS_PLUGIN_CLASS(c)		\
     (G_TYPE_CHECK_CLASS_TYPE ((c),  JS_PLUGIN_TYPE))
 #define JS_PLUGIN_GET_CLASS(o)	\
     (G_TYPE_INSTANCE_GET_CLASS ((o), JS_PLUGIN_TYPE, JsPluginClass))
