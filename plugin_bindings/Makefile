@@ -11,19 +11,19 @@
 # CC0 Public Domain Dedication:
 # http://creativecommons.org/publicdomain/zero/1.0/
 
-CFLAGS=`pkg-config --cflags glib-2.0 gobject-2.0` -g 
-LIBS=`pkg-config --libs glib-2.0 gobject-2.0` 
+CFLAGS=`pkg-config --cflags glib-2.0 gobject-2.0 gobject-introspection-1.0 gjs-1.0` -g 
+LIBS=`pkg-config --libs glib-2.0 gobject-2.0 gobject-introspection-1.0 gjs-1.0` 
 
-OBJECTS=tut-greeter.o main.o
-SOURCES=tut-greeter.c tut-greeter.h main.c
+OBJECTS=js-plugin.o main.o
+SOURCES=js-plugin.c js-plugin.h main.c
 
 all: greeter
 
 greeter: $(OBJECTS)	
 	$(CC) -o $@ $(OBJECTS) $(LIBS)
 
-tut-greeter.o: tut-greeter.c tut-greeter.h
-main.o: main.c tut-greeter.h
+js-plugin.o: js-plugin.c js-plugin.h
+main.o: main.c js-plugin.h
 
 clean:
 	rm *.o greeter

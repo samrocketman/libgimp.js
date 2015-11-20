@@ -10,7 +10,7 @@
 #include <glib-object.h>
 
 #define JS_PLUGIN_TYPE		\
-    (tut_greeter_get_type())
+    (js_plugin_get_type())
 #define JS_PLUGIN(o)			\
     (G_TYPE_CHECK_INSTANCE_CAST ((o), JS_PLUGIN_TYPE, JsPlugin))
 #define JS_PLUGIN_CLASS(c)		\

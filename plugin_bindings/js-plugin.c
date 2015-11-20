@@ -24,9 +24,9 @@ enum
 static GParamSpec *obj_properties[N_PROPERTIES] = { NULL, };
 
 static void
-js_plugin_init (TutGreeter *object)
+js_plugin_init (JsPlugin *object)
 {
-    TutGreeterPrivate *priv = TUT_GREETER_GET_PRIVATE (object);
+    JsPluginPrivate *priv = JS_PLUGIN_GET_PRIVATE (object);
 
     priv->greetee = NULL;
 }
@@ -34,10 +34,10 @@ js_plugin_init (TutGreeter *object)
 static void
 js_plugin_finalize (GObject *object)
 {
-    TutGreeterPrivate *priv = TUT_GREETER_GET_PRIVATE (object);
+    JsPluginPrivate *priv = JS_PLUGIN_GET_PRIVATE (object);
 
     g_free (priv->greetee);
-    G_OBJECT_CLASS (tut_greeter_parent_class)->finalize (object);
+    G_OBJECT_CLASS (js_plugin_parent_class)->finalize (object);
 }
 
 static void
@@ -46,7 +46,7 @@ js_plugin_set_property (GObject      *object,
               const GValue *value,
               GParamSpec   *pspec)
 {
-    TutGreeterPrivate *priv = TUT_GREETER_GET_PRIVATE (object);
+    JsPluginPrivate *priv = JS_PLUGIN_GET_PRIVATE (object);
 
     switch (property_id) {
     case PROP_GREETEE:
@@ -66,7 +66,7 @@ js_plugin_get_property (GObject    *object,
               GValue     *value,
               GParamSpec *pspec)
 {
-    JsPluginPrivate *priv = TUT_GREETER_GET_PRIVATE (object);
+    JsPluginPrivate *priv = JS_PLUGIN_GET_PRIVATE (object);
 
     switch (property_id) {
     case PROP_GREETEE:
@@ -140,7 +140,7 @@ js_plugin_greet (JsPlugin *plugin)
     JsPluginPrivate *priv;
     g_return_if_fail (plugin != NULL);
 
-    priv = TUT_GREETER_GET_PRIVATE (plugin);
+    priv = JS_PLUGIN_GET_PRIVATE (plugin);
     printf ("Hello, %s!\n", priv->greetee);
 
 }
