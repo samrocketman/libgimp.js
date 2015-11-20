@@ -157,5 +157,4 @@ js_plugin_greet (JsPlugin *plugin)
 
     priv = JS_PLUGIN_GET_PRIVATE (plugin);
     printf ("Hello, %s!\n", priv->greetee);
-
 }
