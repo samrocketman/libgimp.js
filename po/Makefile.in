@@ -24,7 +24,7 @@ top_srcdir = ..
 top_builddir = ..
 
 
-prefix = /home/vagrant/usr
+prefix = /usr/local
 exec_prefix = ${prefix}
 datadir = ${prefix}/share
 libdir = ${exec_prefix}/lib
@@ -32,7 +32,7 @@ localedir = $(libdir)/locale
 gnulocaledir = $(datadir)/locale
 gettextsrcdir = $(datadir)/glib-2.0/gettext/po
 subdir = po
-install_sh = ${SHELL} /home/vagrant/git/libgimp.js/install-sh
+install_sh = ${SHELL} /home/vagrant/git/plugin/libgimp.js/install-sh
 mkdir_p = $(MKDIR_P)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 

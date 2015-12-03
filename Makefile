@@ -79,14 +79,15 @@ subdir = .
 DIST_COMMON = INSTALL NEWS README AUTHORS ChangeLog \
 	$(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) \
-	$(srcdir)/config.h.in COPYING TODO compile install-sh missing
+	$(srcdir)/config.h.in mkinstalldirs COPYING TODO compile \
+	depcomp install-sh missing
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-am__aclocal_m4_deps = $(top_srcdir)/configure.in
+am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
-mkinstalldirs = $(install_sh) -d
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
@@ -189,13 +190,13 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/vagrant/git/libgimp.js/missing aclocal-1.14 
+ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 
 ALL_LINGUAS = az de fr sk sv zh_TW
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /home/vagrant/git/libgimp.js/missing autoconf
-AUTOHEADER = ${SHELL} /home/vagrant/git/libgimp.js/missing autoheader
-AUTOMAKE = ${SHELL} /home/vagrant/git/libgimp.js/missing automake-1.14
+AUTOCONF = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing autoconf
+AUTOHEADER = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing autoheader
+AUTOMAKE = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing automake-1.14
 AWK = gawk
 CATALOGS =  az.gmo de.gmo fr.gmo sk.gmo sv.gmo zh_TW.gmo
 CATOBJEXT = .gmo
@@ -242,7 +243,7 @@ LIBS =
 LOCALEDIR = ${datarootdir}/locale
 LTLIBOBJS = 
 MAINT = #
-MAKEINFO = ${SHELL} /home/vagrant/git/libgimp.js/missing makeinfo
+MAKEINFO = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing makeinfo
 MKDIR_P = /bin/mkdir -p
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
@@ -270,10 +271,10 @@ STRIP =
 USE_NLS = yes
 VERSION = 2.2.0
 XGETTEXT = /usr/bin/xgettext
-abs_builddir = /home/vagrant/git/libgimp.js
-abs_srcdir = /home/vagrant/git/libgimp.js
-abs_top_builddir = /home/vagrant/git/libgimp.js
-abs_top_srcdir = /home/vagrant/git/libgimp.js
+abs_builddir = /home/vagrant/git/plugin/libgimp.js
+abs_srcdir = /home/vagrant/git/plugin/libgimp.js
+abs_top_builddir = /home/vagrant/git/plugin/libgimp.js
+abs_top_srcdir = /home/vagrant/git/plugin/libgimp.js
 ac_ct_CC = gcc
 am__include = include
 am__leading_dot = .
@@ -292,7 +293,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/vagrant/git/libgimp.js/install-sh
+install_sh = ${SHELL} /home/vagrant/git/plugin/libgimp.js/install-sh
 intltool__v_merge_options_ = $(intltool__v_merge_options_$(AM_DEFAULT_VERBOSITY))
 intltool__v_merge_options_0 = -q
 libdir = ${exec_prefix}/lib
@@ -303,7 +304,7 @@ mandir = ${datarootdir}/man
 mkdir_p = $(MKDIR_P)
 oldincludedir = /usr/include
 pdfdir = ${docdir}
-prefix = /home/vagrant/usr
+prefix = /usr/local
 program_transform_name = s,x,x,
 psdir = ${docdir}
 sbindir = ${exec_prefix}/sbin
