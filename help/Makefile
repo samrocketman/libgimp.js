@@ -167,7 +167,7 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 
+ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 -I /home/vagrant/gimp-git/share/aclocal 
 ALL_LINGUAS = az de fr sk sv zh_TW
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
@@ -237,7 +237,7 @@ PACKAGE_VERSION = 2.2.0
 PATH_SEPARATOR = :
 PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
-PKG_CONFIG_PATH = /home/vagrant/gimp-git/lib/pkgconfig/
+PKG_CONFIG_PATH = /home/vagrant/gimp-git/lib/pkgconfig:/home/vagrant/gimp-git/lib/pkgconfig/
 POFILES =  az.po de.po fr.po sk.po sv.po zh_TW.po
 POSUB = po
 PO_IN_DATADIR_FALSE = 
