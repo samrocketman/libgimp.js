@@ -1,4 +1,4 @@
-const JsPlugin = imports.gi.JsPlugin; 
+const JsPlugin = imports.gi.Js; 
 
-let greeter = new JsPlugin.JsPlugin({ greetee: 'JavaScript programmer' });
+let greeter = new Js.JsPlugin({ greetee: 'JavaScript programmer' });
 greeter.greet();
