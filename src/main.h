@@ -7,6 +7,11 @@
 #include <gdk/gdkkeysyms.h>
 #include <glib.h>
 #include <glib/gi18n.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 typedef struct {
   GtkWidget *window;

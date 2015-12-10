@@ -1,0 +1,11 @@
+Document: script-js-help
+Title: GIMP Plug-in Template Help
+Author: John Doe <johndoe@johndoes.net>
+Abstract: Online help for the 
+ GIMP plug-in template.
+Section: Apps/Graphics
+
+Format: HTML
+Index: /usr/share/script-js/help/C/index.html
+Files: /usr/share/script-js/help/C/*.html 
+ /usr/share/script-js/help/images/*

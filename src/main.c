@@ -1,4 +1,4 @@
-#include "script-js.h"
+#include "main.h"
 
 GimpPlugInInfo PLUG_IN_INFO =
 {
@@ -159,7 +159,25 @@ js_fu_submit (GtkWidget *widget, GtkTextBuffer *buffer)
   text = gtk_text_buffer_get_text (buffer, &start, &end, FALSE);
 
   printf(text);
-
   printf("\n");
+
+  FILE * fd;
+  char * args[3] = {"bash", "script.sh", NULL};
+
+  fd = fopen("newfileunique", "w+");
+  fwrite(text, 1, sizeof(text), fd);
+  fclose(fd);
+
+  int pid = fork();
+  int status;
+  if (pid == 0) {
+    execvp(args[0], args);
+    printf("Exec did not work.");	
+  }
+
+  else {
+    waitpid(pid, &status, 0);
+  }
+
   fflush(stdout);
 }
