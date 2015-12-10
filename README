@@ -1,6 +1,32 @@
-# libgimp.js
+CIS 399: Libgimp
+Javascript engine for GIMP
+===================================================================
 
-Goals: write plugins in JavaScript for GIMP.
+This repository contains our (Scott Freeman & Pratyusha Gupta) attempt at establishing a basic format for the Javascript plug-in development environment suggested by the GIMP community for the 2011 Google Summer of Code (http://wiki.gimp.org/wiki/Hacking:GSoC/2011/Ideas#Support_writing_JavaScript_plug-ins).
 
-Contains sample work to learn how to create .c plug-ins in GIMP.
-Also contains sample work to figure out Gjs.
+The vast majority of our files are in order to allow autobuild to occur. The actual terminal code is located in src/main.c. We had difficulty allowing automake to work due to issues with internationalizing using the tools provided. After reaching out to the community via IRC and attempting to contact the original authors (the template code is 11 years old), we were unable to resolve the issue. Thus, to build the code, please type ./configure and then make && make install as seperate commands.
+
+Main.c has the following functionality:
+
+static void query (void);
+static void run   (const gchar      *name,
+                   gint              nparams,
+                   const GimpParam  *param,
+                   gint             *nreturn_vals,
+                   GimpParam       **return_vals);
+static void js_fu_submit (GtkWidget *widget,
+                          GtkTextBuffer *buffer);
+
+Query is the initalization function that sets up the basic parameters for the plugin. This includes, but is not limited to, the title, authors, add-on name, add-on type, parameters, etc.
+
+The run function is called when the plug-in is loaded. This sets up our Gtk Widget. Specifically, our Gtk is set up as follows:
+- A new dialog is created
+- A box is packed into the dialog
+- A scrolled window is backed into the box
+- A text buffer and textbox are backed into the box
+- A button is packed into the box
+- There is a signal redirection from the button into js_fu_submit
+
+The js_fu_submit command is called when the submit button is pressed. This method does the following:
+- Creates a new file called main.js
+- Execs a new instance of bash to run a script called script.js (described below), which executes our GObject Introspection
