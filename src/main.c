@@ -165,7 +165,7 @@ js_fu_submit (GtkWidget *widget, GtkTextBuffer *buffer)
   char * args[3] = {"bash", "script.sh", NULL};
 
   fd = fopen("main.js", "w+");
-  fwrite(text, 1, sizeof(char) * strlen(text)), fd);
+  fwrite(text, 1, sizeof(char) * strlen(text), fd);
   fclose(fd);
 
   int pid = fork();
