@@ -30,3 +30,8 @@ The run function is called when the plug-in is loaded. This sets up our Gtk Widg
 The js_fu_submit command is called when the submit button is pressed. This method does the following:
 - Creates a new file called main.js
 - Execs a new instance of bash to run a script called script.js (described below), which executes our GObject Introspection
+	- The script first makes the js-greeter.c files, which contains the code for generating a simple GObject namespace.
+	- The namespace has an instance variable greetee and one one greet() method, which prints out "Hello, " + greetee.
+	- Then, Gjs takes our namespace and generates a JavaScript library that can be used
+	- The program also outputs a .gir file, which contains an XML representation of the Js namespace we created
+	- The script then takes in our generated JS file and generates a greeter binary, which will print out the message when run
