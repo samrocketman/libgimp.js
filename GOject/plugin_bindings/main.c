@@ -15,27 +15,27 @@
 
 #include <gjs/gjs.h>
 #include <glib.h>
-#include "js-plugin.h"
+#include "js-greeter.h"
 #include <girepository.h>
 
-int main (int argc, char *argv[])
+int main (int argc, char *argv[]) 
 {
     GOptionContext *ctx;
     GError *error = NULL;
 
     ctx = g_option_context_new (NULL);
-    g_option_context_add_group (ctx, g_irepository_get_option_group ());
+    g_option_context_add_group (ctx, g_irepository_get_option_group ());  
 
     if (!g_option_context_parse (ctx, &argc, &argv, &error)) {
         g_print ("greeter: %s\n", error->message);
         return 1;
-    }
-
+    } 
+    
     GjsContext *gjs;
     int status = 0;
-
+    
     gjs = gjs_context_new ();
-    if (!gjs_context_eval_file (gjs, "main.js", &status, &error)) {
+    if (!gjs_context_eval_file (gjs, argv[1], &status, &error)) {
         g_print ("greeter: couldn't evaluate JavaScript: %s\n", error->message);        g_clear_error (&error);
     }
     g_object_unref (gjs);
