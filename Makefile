@@ -190,7 +190,7 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 -I /home/vagrant/gimp-git/share/aclocal 
+ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 
 ALL_LINGUAS = az de fr sk sv zh_TW
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1

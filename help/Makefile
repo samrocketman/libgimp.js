@@ -167,7 +167,7 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 -I /home/vagrant/gimp-git/share/aclocal 
+ACLOCAL = ${SHELL} /home/vagrant/git/plugin/libgimp.js/missing aclocal-1.14 
 ALL_LINGUAS = az de fr sk sv zh_TW
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
